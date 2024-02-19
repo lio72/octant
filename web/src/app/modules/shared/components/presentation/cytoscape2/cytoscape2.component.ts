@@ -87,7 +87,7 @@ export class Cytoscape2Component implements OnChanges {
 
     this.cytoscape.on('tap', 'node', e => {
       const node: SingularData = e.target;
-      localSelect.emit(node.data());
+      localSelect.emit((node as any).data());
     });
 
     this.cytoscape.on('layoutstop', _ => {

@@ -14,8 +14,8 @@
   "main": "main.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "node ./node_modules/@angular/cli/bin/ng build --configuration production --output-hashing=all",
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && ng serve",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && node ./node_modules/@angular/cli/bin/ng build --configuration production --output-hashing=all",
     "build-electron": "npx tsc main.ts && npm run build -- --base-href ./",
     "test": "ng test --watch=false --browsers=ElectronDebug",
     "test:headless": "ng test --watch=false --browsers=ChromeHeadless --source-map=false",
@@ -90,7 +90,8 @@
     "ws": "^7.4.6",
     "xterm": "^4.9.0",
     "xterm-addon-fit": "^0.4.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "yauzl": "^2.7.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^12.2.6",
